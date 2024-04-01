@@ -7,10 +7,18 @@ import (
 	"testing"
 )
 
+func testFunc(key string) ([]byte, error) {
+	return []byte(key), nil
+}
 func TestGetter(t *testing.T) {
-	var f Getter = GetterFunc(func(key string) ([]byte, error) {
-		return []byte(key), nil
-	})
+	// METHOD 1: using Anonymous functions
+
+	// var f Getter = GetterFunc(func(key string) ([]byte, error) {
+	// 	return []byte(key), nil
+	// })
+
+	// Method 2: Type Casting
+	var f Getter = GetterFunc(testFunc)
 
 	expect := []byte("key")
 	if v, _ := f.Get("key"); !reflect.DeepEqual(v, expect) {
