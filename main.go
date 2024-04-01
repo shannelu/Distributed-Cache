@@ -27,3 +27,9 @@ func main() {
 	log.Println("geecache is running at ", addr)
 	log.Fatal(http.ListenAndServe(addr, peers))
 }
+
+// test
+// $ curl http://localhost:9999/_geecache/scores/Tom
+// 630
+// $ curl http://localhost:9999/_geecache/scores/kkk
+// kkk not exist
