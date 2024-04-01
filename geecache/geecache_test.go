@@ -1,4 +1,4 @@
-package distributedcache
+package geecache
 
 import (
 	"fmt"

@@ -1,4 +1,4 @@
-package distributedcache
+package geecache
 
 import (
 	"fmt"
@@ -66,7 +66,7 @@ func (g *Group) Get(key string) (ByteView, error) {
 	}
 
 	if v, ok := g.mainCache.get(key); ok {
-		log.Println("GeeCache] hit")
+		log.Println("[GeeCache] hit")
 		return v, nil
 	}
 	// if it doesn't exist in cache
