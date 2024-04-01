@@ -13,8 +13,8 @@ type Hash func(data []byte) uint32
 type Map struct {
 	hash     Hash
 	replicas int
-	keys     []int //sorted
-	hashMap  map[int]string
+	keys     []int          //sorted
+	hashMap  map[int]string // mapping virtual nodes to physical nodes
 }
 
 // New creates a Map instance
@@ -25,7 +25,7 @@ func New(replicas int, fn Hash) *Map {
 		hashMap:  make(map[int]string),
 	}
 	if m.hash == nil {
-		m.hash = crc32.ChecksumIEEE
+		m.hash = crc32.ChecksumIEEE // default checksum
 	}
 	return m
 }
